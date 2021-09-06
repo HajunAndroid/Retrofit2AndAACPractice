@@ -7,4 +7,5 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Retrofit2AndMVVM"
-include ':app'
+include ':Movie'
+include ':News'
