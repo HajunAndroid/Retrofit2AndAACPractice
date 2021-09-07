@@ -43,6 +43,7 @@ public class MyViewModel extends ViewModel {
                     public void onResponse(Call<PageListModel> call, Response<PageListModel> response) {
                         if(response.isSuccessful()){
                             liveData.postValue(response.body().articles);
+                            new InsertDataThread(response.body().articles).start();;
                         }
                     }
 
