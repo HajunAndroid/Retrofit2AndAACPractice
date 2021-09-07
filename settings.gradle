@@ -10,3 +10,4 @@ rootProject.name = "Retrofit2AndMVVM"
 include ':Movie'
 include ':News'
 include ':newsdatabinding'
+include ':newsviewmodel'

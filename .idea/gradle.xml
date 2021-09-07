@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/Movie" />
             <option value="$PROJECT_DIR$/News" />
             <option value="$PROJECT_DIR$/newsdatabinding" />
+            <option value="$PROJECT_DIR$/newsviewmodel" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
