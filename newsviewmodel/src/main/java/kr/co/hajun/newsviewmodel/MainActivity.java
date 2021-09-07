@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
             MyAdapter adapter = new MyAdapter(news);
             binding.recyclerView.setAdapter(adapter);
         });
+
     }
 
 
