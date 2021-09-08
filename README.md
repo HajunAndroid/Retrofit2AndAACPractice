@@ -1,7 +1,7 @@
 # Retrofit2AndAACPractice
 ###### ('깡샘의 안드로이드 프로그래밍-강성윤' 도서의 실습 코드를 참고한 것임을 밝힙니다.)
 
-<img src = "https://user-images.githubusercontent.com/87768226/132446563-71f977e9-2ac9-4dd7-9ef5-9ea26294cd83.PNG" width="25%" height="25%">
+<img src = "https://user-images.githubusercontent.com/87768226/132446563-71f977e9-2ac9-4dd7-9ef5-9ea26294cd83.PNG" width="35%" height="35%">
 
 ### 실습 설명
 ##### > 'https://newsapi.org' 에서 제공하는 뉴스를 Retrofit을 사용해 받습니다.
