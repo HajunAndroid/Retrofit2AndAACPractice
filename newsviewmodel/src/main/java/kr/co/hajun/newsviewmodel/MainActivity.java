@@ -26,57 +26,20 @@ import kr.co.hajun.newsviewmodel.databinding.ItemMainBinding;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
+    MyListAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_main);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new MyListAdapter(getApplicationContext());
 
         MyViewModel viewModel = ViewModelProviders.of(this).get(MyViewModel.class);
         viewModel.getNews().observe(this,news->{
-            MyAdapter adapter = new MyAdapter(news);
-            binding.recyclerView.setAdapter(adapter);
+            adapter.submitList(news);
         });
-
+        binding.recyclerView.setAdapter(adapter);
     }
-
-
-    class ItemViewHolder extends RecyclerView.ViewHolder{
-            ItemMainBinding binding;
-
-            public ItemViewHolder(ItemMainBinding binding){
-                super(binding.getRoot());
-                this.binding = binding ;
-            }
-    }
-
-
-    class MyAdapter extends RecyclerView.Adapter<ItemViewHolder> {
-        List<ItemModel> articles;
-
-        public MyAdapter(List<ItemModel> articles) {
-            this.articles = articles;
-        }
-
-        @Override
-        public int getItemCount() {
-            return articles.size();
-        }
-        @NonNull
-        @Override
-        public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            ItemMainBinding binding = ItemMainBinding.
-                    inflate(LayoutInflater.from(parent.getContext()), parent, false);
-            return new ItemViewHolder(binding);
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
-            ItemModel model = articles.get(position);
-            holder.binding.setItem(model);
-        }
-    }
-
 
     @BindingAdapter("bind:publishedAt")
     public static void publishedAt(TextView view, String date) {
@@ -85,6 +48,6 @@ public class MainActivity extends AppCompatActivity {
 
     @BindingAdapter("bind:urlToImage")
     public static void urlToImage(ImageView view, String url) {
-        Glide.with(MyApplication.getAppContext()).load(url).override(250, 200).into(view);
+        Glide.with(MyApplication.context).load(url).override(250, 200).into(view);
     }
 }

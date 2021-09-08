@@ -3,17 +3,19 @@ package kr.co.hajun.newsviewmodel;
 import android.app.Application;
 import android.content.Context;
 
+import androidx.room.Room;
+
 public class MyApplication extends Application {
 
-    private static Context context;
-
+    public static Context context;
+    public static ArticleDAO dao;
+    public static RetrofitService networkService;
     public void onCreate() {
         super.onCreate();
-        MyApplication.context = getApplicationContext();
-    }
-
-    public static Context getAppContext() {
-        return MyApplication.context;
+        context = getApplicationContext();
+        AppDatabase db = Room.databaseBuilder(context, AppDatabase.class, "mydb").build();
+        dao = db.articleDAO();
+        networkService = RetrofitFactory.create();
     }
 }
 
